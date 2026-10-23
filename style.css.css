@@ -1,0 +1,864 @@
+/* =========================================================
+   VIBEPLANNER - STYLE.CSS (Redesign Moderno)
+========================================================= */
+
+:root {
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --danger: #ef4444;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 20px 35px -10px rgba(15, 23, 42, 0.1);
+  --hour: 72px;
+}
+
+/* =========================================================
+   RESET & BASE
+========================================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+input, select, textarea {
+  width: 100%;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  background: var(--surface);
+  color: var(--ink);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.hidden, .d-none {
+  display: none !important;
+}
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.login-wrapper {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--bg) 0%, var(--line) 100%);
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 40px;
+  border: 1px solid var(--line);
+}
+
+.login-card h1 {
+  margin: 0 0 8px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.login-card p {
+  margin: 0 0 28px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.login-card label {
+  display: block;
+  margin: 16px 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.login-card button {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.login-error {
+  color: var(--danger);
+  font-size: 13px;
+  margin-top: 12px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+
+.btn, .primary-button {
+  border-radius: var(--radius-sm);
+  padding: 10px 18px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn:hover, .primary-button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+
+.btn-dark {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+.btn-dark:hover {
+  background: #1e293b;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+}
+
+.secondary-button {
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.secondary-button:hover {
+  background: var(--bg);
+  border-color: var(--muted);
+}
+
+.danger-button {
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  background: #fee2e2;
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.danger-button:hover {
+  background: #fecaca;
+}
+
+/* =========================================================
+   ESTRUTURA PRINCIPAL
+========================================================= */
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr) 320px;
+  background: var(--bg);
+}
+
+.workspace {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+  background: var(--sidebar, #f8fafc);
+  border-right: 1px solid var(--line);
+  padding: 24px 16px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  padding: 4px 12px 24px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+}
+
+.brand span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.nav-btn, .themes-toggle {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover, .nav-btn.active, .themes-toggle:hover {
+  background: var(--surface);
+  color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.nav-btn.active {
+  color: var(--accent);
+  background: var(--surface);
+}
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 24px 8px;
+}
+
+.menu-btn {
+  display: none;
+}
+
+.search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 480px;
+}
+
+.search-wrap i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+}
+
+.search-wrap input {
+  padding-left: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+.top-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+  border-color: var(--muted);
+  background: var(--bg);
+}
+
+.icon-btn .dot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--danger);
+}
+
+.user-chip {
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  border-radius: 999px;
+  padding: 4px 14px 4px 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+#main {
+  padding: 12px 24px 32px;
+  min-width: 0;
+  flex: 1;
+}
+
+.cal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cal-head h1 {
+  font-size: 26px;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.cal-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pager {
+  display: flex;
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.pager button {
+  border: none;
+  background: transparent;
+  height: 38px;
+  padding: 0 12px;
+  color: var(--ink);
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.pager button:hover {
+  background: var(--bg);
+}
+
+.pager button + button {
+  border-left: 1.5px solid var(--line);
+}
+
+.seg {
+  display: flex;
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+}
+
+.seg button {
+  border: none;
+  border-radius: 6px;
+  height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+
+.seg button.active {
+  background: var(--ink);
+  color: var(--surface);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* =========================================================
+   CALENDÁRIO (SEMANA / DIA / MÊS)
+========================================================= */
+
+.week-scroll, .day-scroll {
+  overflow: auto;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+
+.week-table {
+  min-width: 900px;
+}
+
+.day-head {
+  display: grid;
+  grid-template-columns: 70px repeat(7, 1fr);
+  border-bottom: 1.5px solid var(--line);
+  position: sticky;
+  top: 0;
+  background: var(--surface);
+  z-index: 5;
+}
+
+.day-head div, .month-head div {
+  text-align: center;
+  padding: 14px 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.day-head strong {
+  display: block;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.day-head .today strong {
+  width: 36px;
+  height: 36px;
+  margin: 4px auto 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.week-body {
+  display: grid;
+  grid-template-columns: 70px repeat(7, 1fr);
+}
+
+.hours {
+  position: relative;
+  background: var(--surface);
+}
+
+.hour-label {
+  height: var(--hour);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: right;
+  padding-right: 12px;
+  transform: translateY(-9px);
+}
+
+.day-col {
+  position: relative;
+  border-left: 1px solid var(--line);
+}
+
+.slot {
+  height: var(--hour);
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.slot:hover {
+  background: rgba(99, 102, 241, 0.03);
+}
+
+/* =========================================================
+   EVENTOS
+========================================================= */
+
+.event {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+  line-height: 1.3;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  z-index: 2;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.event:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+  z-index: 3;
+}
+
+.event b {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.event span {
+  opacity: 0.85;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* =========================================================
+   MÊS
+========================================================= */
+
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+
+.month-head {
+  display: contents;
+}
+
+.month-head div {
+  background: var(--bg);
+  border-bottom: 1.5px solid var(--line);
+  border-right: 1px solid var(--line);
+  padding: 12px;
+}
+
+.m-day {
+  min-height: 120px;
+  width: 100%;
+  border: 1px solid var(--line);
+  padding: 10px;
+  margin: 0;
+  background: var(--surface);
+  color: var(--ink);
+  text-align: left;
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.15s;
+}
+
+.m-day:hover {
+  background: rgba(99, 102, 241, 0.02);
+}
+
+.m-day > span:first-child {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.m-day.out {
+  background: var(--bg);
+  opacity: 0.5;
+}
+
+.m-day.today > span:first-child {
+  width: 26px;
+  height: 26px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+.chip {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 6px;
+  margin-top: 3px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* =========================================================
+   CARDS & PAINÉIS
+========================================================= */
+
+.list-card, .panel-card, .settings-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  border: 1px solid var(--line);
+}
+
+.list-card h2, .settings-card h2 {
+  font-size: 20px;
+  margin: 0 0 16px;
+  font-weight: 800;
+}
+
+.item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.bar {
+  width: 6px;
+  height: 40px;
+  border-radius: 99px;
+  flex: none;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.empty {
+  color: var(--muted);
+  padding: 24px 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* =========================================================
+   CONFIGURAÇÕES / TEMAS
+========================================================= */
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+.theme-card {
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.theme-card:hover {
+  border-color: var(--muted);
+}
+
+.theme-card.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.preview {
+  height: 60px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: 
+    linear-gradient(#fff, #fff) 8px 8px / 20px 12px no-repeat,
+    linear-gradient(var(--p1), var(--p1)) 8px 24px / 32px 8px no-repeat,
+    linear-gradient(var(--p2), var(--p2));
+}
+
+.opt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.task-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.task-row.done span {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+/* =========================================================
+   PAINEL LATERAL & TOASTS
+========================================================= */
+
+.panel {
+  background: var(--sidebar, #f8fafc);
+  border-left: 1px solid var(--line);
+  padding: 24px;
+  min-height: 100vh;
+}
+
+.toast-wrap {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 50;
+}
+
+.toast-msg {
+  background: #0f172a;
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: 12px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  animation: slideIn 0.2s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 1100px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+  .sidebar, .panel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: min(320px, 92vw);
+    z-index: 30;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-lg);
+  }
+  .sidebar { left: 0; transform: translateX(-105%); }
+  .panel { right: 0; transform: translateX(105%); }
+  .sidebar.open { transform: translateX(0); }
+  .panel.open { transform: translateX(0); }
+  .menu-btn {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1.5px solid var(--line);
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    color: var(--ink);
+  }
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 25;
+    display: none;
+  }
+  .backdrop.show { display: block; }
+}
